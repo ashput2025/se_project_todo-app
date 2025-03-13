@@ -28,7 +28,6 @@ class FormValidator {
       _checkInputValidity(inputElement){
         if (!inputElement.validity.valid) {
             this._showInputError(
-              this._formEl,
               inputElement,
               inputElement.validationMessage,
             );
@@ -37,7 +36,7 @@ class FormValidator {
           }
       };
 
-      _showInputError = (errorMessage, inputElement) => {
+      _showInputError = (inputElement, errorMessage) => {
         this._errorElementId = `#${inputElement.id}-error`;
         this._errorElement = this._formEl.querySelector(this._errorElementId);
         inputElement.classList.add(this._inputErrorClass);
@@ -53,9 +52,9 @@ class FormValidator {
         this._errorElement.textContent = "";
       };
 
-      _resetValidation = () => {
-        this._inputList.forEach(() => {
-          this._hideInputError();
+      resetValidation = () => {
+        this._inputList.forEach((inputElement) => {
+          this._hideInputError(inputElement);
         });
       };
 

@@ -43,11 +43,11 @@ class Todos {
         this._todoElement = this._templateElement.content
           .querySelector(".todo")
           .cloneNode(true);
-        const todoNameEl = this._todoElement.querySelector(".todo__name");
+        this._todoNameEl = this._todoElement.querySelector(".todo__name");
         this._todoDate = this._todoElement.querySelector(".todo__date");
         this._todoDeleteBtn = this._todoElement.querySelector(".todo__delete-btn");
 
-        todoNameEl.textContent = this._data.name;
+        this._todoNameEl.textContent = this._data.name;
 
         this._generateCheckboxEl();
         this._generateTodoDate();
