@@ -30,8 +30,8 @@ const generateTodo = (data) => {
 };
 
 addTodoButton.addEventListener("click", () => {
-  newTodoValidator.resetValidation(addTodoForm);
   openModal(addTodoPopup);
+  newTodoValidator.resetValidation();
 });
 
 addTodoCloseBtn.addEventListener("click", () => {
@@ -51,13 +51,17 @@ addTodoForm.addEventListener("submit", (evt) => {
   const values = { name, date, id };
   const todo = generateTodo(values);
   todosList.append(todo);
+
+  newTodoValidator.resetValidation();
   closeModal(addTodoPopup);
 });
 
-initialTodos.forEach((item) => {
-  const todo = generateTodo(item);
+const renderTodo = (items) => {
+  const todo = generateTodo(items);
   todosList.append(todo);
-});
+};
+
+initialTodos.forEach(renderTodo);
 
 const newTodoValidator = new FormValidator(validationConfig, addTodoForm);
 newTodoValidator.enableValidation();
