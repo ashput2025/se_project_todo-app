@@ -29,12 +29,12 @@ section.renderItems();
   modal.classList.add("popup_visible");
 };
 
-const generateTodo = (data) => {
-  const todo = new Todos(data, "#todo-template");
-  const todoElement = todo.getView();
+// const generateTodo = (data) => {
+//   const todo = new Todos(data, "#todo-template");
+//   const todoElement = todo.getView();
   
-  return todoElement;
-};
+//   return todoElement;
+// };
 
 const closeModal = (modal) => {
   modal.classList.remove("popup_visible");
