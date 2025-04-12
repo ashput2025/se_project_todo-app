@@ -1,9 +1,13 @@
+// REMOVE COMMENTS BEFORE SUBMITTING
+
 import { initialTodos, validationConfig } from "../utils/constants.js";
 import Todos from "../components/Todo.js";
 import { v4 as uuidv4 } from 'https://jspm.dev/uuid';
 import FormValidator from "../components/FormValidator.js";
 import Section from "../utils/Section.js";
+import Popup from "../components/Popup.js";
 
+console.log(Popup);
 
 console.log(uuidv4());
 console.log(validationConfig);
@@ -34,7 +38,7 @@ section.renderItems();
 //   const todoElement = todo.getView();
   
 //   return todoElement;
-// };
+// };                                   REMOVE FUNCTION
 
 const closeModal = (modal) => {
   modal.classList.remove("popup_visible");
@@ -74,8 +78,8 @@ addTodoForm.addEventListener("submit", (evt) => {
 //   const todo = generateTodo(items);
 //   todosList.append(todo);
 // };
-
-// initialTodos.forEach(renderTodo);
+                 
+// initialTodos.forEach(renderTodo);           REMOVE FUNCTION
 
 const newTodoValidator = new FormValidator(validationConfig, addTodoForm);
 newTodoValidator.enableValidation();
