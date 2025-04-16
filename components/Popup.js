@@ -6,7 +6,7 @@ class Popup {
 
     open(){
         this._popupElement.classList.add("popup_visible");
-
+        document.addEventListener('keyup', this._handleEscapeClose.bind(this));
     }
 
     close(){
@@ -14,14 +14,20 @@ class Popup {
 
     }
 
-    _handleEscapeClose(){
-
+    _handleEscapeClose(evt){
+        console.log('key');
+        if(evt.key === 'Escape'){
+            console.log('esc');
+        }
     }
 
     setEventListeners(){
         this._popupClosedBtn.addEventListener('click', () =>{
             this.close();
         })
+
+        document.addEventListener('keyup', this._handleEscapeClose.bind(this));
+
     }
 }
 
