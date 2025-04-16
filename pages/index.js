@@ -22,6 +22,8 @@ const addTodoPopup = new PopupWithForm({
   handleFormSubmit: () => {}
 });
 
+addTodoPopup.setEventListeners();
+
 const section = new Section({
   items: initialTodos,
   renderer: (data) => {
