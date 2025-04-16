@@ -33,9 +33,9 @@ const section = new Section({
 
 section.renderItems();
 
- const openModal = (modal) => {
-  modal.classList.add("popup_visible");
-};
+//  const openModal = (modal) => {
+//   modal.classList.add("popup_visible");
+// };
 
 // const generateTodo = (data) => {
 //   const todo = new Todos(data, "#todo-template");
@@ -44,17 +44,17 @@ section.renderItems();
 //   return todoElement;
 // };                                   REMOVE FUNCTION
 
-const closeModal = (modal) => {
-  modal.classList.remove("popup_visible");
-};
+// const closeModal = (modal) => {
+//   modal.classList.remove("popup_visible");
+// };
 
 addTodoButton.addEventListener("click", () => {
-  openModal(addTodoPopupEl);
+  addTodoPopup.open();
   newTodoValidator.resetValidation();
 });
 
 addTodoCloseBtn.addEventListener("click", () => {
-  closeModal(addTodoPopupEl);
+addTodoPopup.close();
 });
 
 addTodoForm.addEventListener("submit", (evt) => {
@@ -73,7 +73,7 @@ addTodoForm.addEventListener("submit", (evt) => {
   section.addItem(todoElement);
 
   newTodoValidator.resetValidation();
-  closeModal(addTodoPopupEl);
+  addTodoPopup.close();
 });
 
 
