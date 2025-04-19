@@ -26,8 +26,9 @@ class Popup {
         // })
 
         this._popupElement.addEventListener('mousedown', (evt) => {
-            if((this._popupElement.classList.contains(".popup__close")) || (!this._popupElement.classList.contains(".popup_visible"))){
+            if((this._popupElement.classList.contains(".popup__close")) || (evt.target === evt.currentTarget)){
                 this.close();
+                //fix to where the form closes when background is clicked and not the form itself
             }
             });
         }
