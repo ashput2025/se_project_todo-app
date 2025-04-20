@@ -19,7 +19,22 @@ export const todosList = document.querySelector(".todos__list");
 
 const addTodoPopup = new PopupWithForm({
   popupSelector: "#add-todo-popup",
-  handleFormSubmit: () => {}
+  handleFormSubmit: (values) => {
+    const name = values.name;
+  const dateInput = values.date;
+
+  // Create a date object and adjust for timezone
+  const date = new Date(dateInput);
+  date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
+
+  values.id = uuidv4();
+
+  const todoElement = section._renderer(values);
+  section.addItem(todoElement);
+
+  newTodoValidator.resetValidation();
+  addTodoPopup.close();
+  }
 });
 
 addTodoPopup.setEventListeners();
@@ -35,21 +50,6 @@ const section = new Section({
 
 section.renderItems();
 
-//  const openModal = (modal) => {
-//   modal.classList.add("popup_visible");
-// };
-
-// const generateTodo = (data) => {
-//   const todo = new Todos(data, "#todo-template");
-//   const todoElement = todo.getView();
-  
-//   return todoElement;
-// };                                   REMOVE FUNCTION
-
-// const closeModal = (modal) => {
-//   modal.classList.remove("popup_visible");
-// };
-
 addTodoButton.addEventListener("click", () => {
   addTodoPopup.open();
   newTodoValidator.resetValidation();
@@ -60,22 +60,22 @@ addTodoPopup.close();
 });
 
 addTodoForm.addEventListener("submit", (evt) => {
-  evt.preventDefault();
-  const name = evt.target.name.value;
-  const dateInput = evt.target.date.value;
+  // evt.preventDefault();
+  // const name = evt.target.name.value;
+  // const dateInput = evt.target.date.value;
 
-  // Create a date object and adjust for timezone
-  const date = new Date(dateInput);
-  date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
+  // // Create a date object and adjust for timezone
+  // const date = new Date(dateInput);
+  // date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
 
-  const id = uuidv4();
-  const values = { name, date, id };
+  // const id = uuidv4();
+  // const values = { name, date, id };
 
-  const todoElement = section._renderer(values);
-  section.addItem(todoElement);
+  // const todoElement = section._renderer(values);
+  // section.addItem(todoElement);
 
-  newTodoValidator.resetValidation();
-  addTodoPopup.close();
+  // newTodoValidator.resetValidation();
+  // addTodoPopup.close();
 });
 
 
