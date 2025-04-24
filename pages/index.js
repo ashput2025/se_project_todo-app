@@ -45,7 +45,7 @@ addTodoPopup.setEventListeners();
 const section = new Section({
   items: initialTodos,
   renderer: (data) => {
-    const todo = new Todos(data, "#todo-template", handleCheck);
+    const todo = new Todos(data, "#todo-template", handleCheck, handleDelete);
     return todo.getView();
   },
   containerSelector: '.todos__list'
@@ -53,6 +53,12 @@ const section = new Section({
 
 function handleCheck(completed){
   todoCounter.updateCompleted(completed);
+};
+
+function handleDelete(completed){
+  if (completed) {
+    todoCounter.updateCompleted(false);
+  }
 };
 
 section.renderItems();
