@@ -45,11 +45,15 @@ addTodoPopup.setEventListeners();
 const section = new Section({
   items: initialTodos,
   renderer: (data) => {
-    const todo = new Todos(data, "#todo-template");
+    const todo = new Todos(data, "#todo-template", handleCheck);
     return todo.getView();
   },
   containerSelector: '.todos__list'
 }); 
+
+function handleCheck(completed){
+  todoCounter.updateCompleted(completed);
+};
 
 section.renderItems();
 
