@@ -1,5 +1,6 @@
 class Todos {
-    constructor(data, selector, handleCheck, handleDelete){
+    constructor(data, selector, handleCheck, handleDelete, todoTotal) {
+        this._todoTotal = todoTotal;
         this._data = data;
         this._templateElement = document.querySelector(selector);
         this._handleCheck = handleCheck;
@@ -36,10 +37,16 @@ class Todos {
 
         this._todoDeleteBtn.addEventListener("click", () => {
             this._handleDelete(this._data.completed);
-            this._todoElement.remove();
+            this._remove();
             
         });
     };
+
+    _remove(){
+        this._todoElement.remove();
+        this._todoTotal();
+    }
+
 
     getView(){
         this._todoElement = this._templateElement.content
@@ -55,8 +62,10 @@ class Todos {
         this._generateTodoDate();
         this._setEventListeners();
 
+
         return this._todoElement;
     }
+    
 }
 
 export default Todos;
