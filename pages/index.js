@@ -1,5 +1,3 @@
-// REMOVE COMMENTS BEFORE SUBMITTING
-
 import { initialTodos, validationConfig } from "../utils/constants.js";
 import Todos from "../components/Todo.js";
 import { v4 as uuidv4 } from 'https://jspm.dev/uuid';
@@ -80,32 +78,9 @@ addTodoPopup.close();
 });
 
 addTodoForm.addEventListener("submit", (evt) => {
-  // evt.preventDefault();
-  // const name = evt.target.name.value;
-  // const dateInput = evt.target.date.value;
-
-  // // Create a date object and adjust for timezone
-  // const date = new Date(dateInput);
-  // date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
-
-  // const id = uuidv4();
-  // const values = { name, date, id };
-
-  // const todoElement = section._renderer(values);
-  // section.addItem(todoElement);
-
-  // newTodoValidator.resetValidation();
-  // addTodoPopup.close();
 });
 
 
-
-// const renderTodo = (items) => {
-//   const todo = generateTodo(items);
-//   todosList.append(todo);
-// };
-                 
-// initialTodos.forEach(renderTodo);           REMOVE FUNCTION
 
 const newTodoValidator = new FormValidator(validationConfig, addTodoForm);
 newTodoValidator.enableValidation();
