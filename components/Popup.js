@@ -16,13 +16,13 @@ class Popup {
 
     _handleEscapeClose(evt){
         if(evt.key === 'Escape'){
-            this.close(this._popupElement);
+            this.close();
         }
     }
 
     setEventListeners(){
         this._popupElement.addEventListener('mousedown', (evt) => {
-            if((this._popupElement.classList.contains(".popup__close")) || (evt.target === evt.currentTarget)){
+            if((evt.target.classList.contains("popup__close")) || (evt.target === evt.currentTarget)){
                 this.close();
             }
             });
