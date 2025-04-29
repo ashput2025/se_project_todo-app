@@ -26,7 +26,7 @@ const addTodoPopup = new PopupWithForm({
 
     values.id = uuidv4();
 
-    const todoElement = section._renderer(values);
+    const todoElement = section.renderer(values);
     //fix todoElement
     section.addItem(todoElement);
 
