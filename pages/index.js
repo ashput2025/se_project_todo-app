@@ -16,11 +16,6 @@ const todoCounter = new TodoCounter(initialTodos, ".counter__text");
 const addTodoPopup = new PopupWithForm({
   popupSelector: "#add-todo-popup",
   handleFormSubmit: (values) => {
-    const dateInput = values.date;
-
-    // Create a date object and adjust for timezone
-    const date = new Date(dateInput);
-    date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
 
     values.id = uuidv4();
 
