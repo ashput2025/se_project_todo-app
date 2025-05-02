@@ -16,7 +16,7 @@ const todoCounter = new TodoCounter(initialTodos, ".counter__text");
 const addTodoPopup = new PopupWithForm({
   popupSelector: "#add-todo-popup",
   handleFormSubmit: (values) => {
-
+    const dateInput = values.date;
     values.id = uuidv4();
 
     const todoElement = section.renderer(values);
